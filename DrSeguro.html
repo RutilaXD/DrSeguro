@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Dr. Seguro | Inicio</title>
+		<style type="text/css"> 
+			body {
+				padding:0; 
+				margin: 0; 
+				width: 100%; 
+				height: 100%;
+				background-image: url('./img/legal.jpg');
+				background-size: cover;
+			}
+			
+			#alert {
+				color: red; 
+				font-size: 30px; 
+				font-weight: bolder;
+			}
+			
+			#demo {
+				font-size: 20px; 
+				font-weight: bold;
+			}
+			
+			#ideal {
+				color: forestgreen; 
+				font-size: 30px; 
+				font-weight: bolder;
+			}
+			
+			#container {
+				margin: 12% auto 0 auto; 
+				width:50%; 
+				height:16em; 
+				background-color: #13263e;
+				padding: 1em;
+				color: white;
+				opacity: 0.8;
+				border-radius: 1em;
+				box-shadow: inset -2px 0px 12px 3px #8290a9;
+			}
+		</style>	
+	</head>
+	<body>
+		<div id="container">
+			<center>
+				<h1>Estimado usuario</h1>
+				<h2>De acuerdo con la información dada, el diagnóstico es:</h2>
+				<p id="demo"></p>
+			</center>
+
+			<script>
+			var text = '{"health":"function() {salud = 0; liquidez = 0; activoD = 754592088; reservaC = 37087081; solvencia = 0; activoTotal = 147157007448; activoFijo = 406552832; pasivoTotal = 133968790064; reservaP = 116087879388; reservaRcurso = 100629131630; reservaXcumplir = 17997139089; rentabilidadCapital = 0; rentabilidadEmision = 0; utilidadNeta = 544680520; capitalContable = 13188217384; primaEmitida = 14209423893; liquidez=activoD/reservaC; solvencia=(activoTotal - activoFijo)/(pasivoTotal - reservaP - reservaRcurso - reservaXcumplir); rentabilidadCapital= utilidadNeta/capitalContable; rentabilidadEmision=utilidadNeta/primaEmitida; if(liquidez <= 0 || liquidez <= 5){salud--;}else{if(liquidez > 5 && liquidez <= 10){salud += 0.5;}else{if(liquidez >= 10){salud += 1;}}} if(solvencia <= 0){salud--;}else{if(solvencia > 0){salud += 1;}} if(rentabilidadCapital < 0){salud--;}else{salud += 1;} if(rentabilidadEmision < 0){salud--;}else{salud += 1;}return salud;}"}';
+
+			var obj = JSON.parse(text);
+			obj.health = eval("(" + obj.health + ")");
+
+			if(obj.health()<=1){
+				//Riesgo
+				document.getElementById("demo").id = "alert";
+				document.getElementById("alert").innerHTML = "En malas condiciones por el momento.<br> Espera un tiempo a que mejore su situación financiera<br>Contratar en estos momentos puede resultar en pérdidas para tu patrimonio. <br> 80% o más de su salud está comprometida negativamente"; 
+			}else if(obj.health()==2){
+				document.getElementById("demo").innerHTML = "Tiene que mejorar.<br> Está en riesgo de paceder algún tipo de crisis<br> si es que de manera inmediata un desastre natural que afectara a una población grande.<br>En un 60-79% está su salud comprometida negativamente por el momento"; 
+			}else if(obj.health()==3){
+				document.getElementById("demo").innerHTML = "Tiene que mejorar. Tiene ciertas condiciones que pueden afectar su estabilidad financiera.<br> En un 50% su salud es estable y puede convenir más contratar algún tipo de servicio de la aseguradora."; 
+			}else if(obj.health()==4){
+				document.getElementById("demo").innerHTML = "Salud estable en un 80%, se puede considerar óptima en éste rango, pues las situaciones de riesgo son menores. Si desea contratar algún servicio o comprar acciones de la empresa puede hacerlo.";
+			}else{
+				//100%
+				document.getElementById("demo").id = "ideal";
+				document.getElementById("ideal").innerHTML = "Salud ideal... al 100%. Nunca pudo estar mejor!!";
+			}
+			</script>		
+		</div>
+	</body>
+</html>
