@@ -1,6 +1,6 @@
 # DrSeguro
 Este es un analizador de salud financiera para compañias de seguros en México, 
-haciendo uso de cinco de todas las razones financieras exclusivas de este sector.
+haciendo uso de cuatro de todas las razones financieras exclusivas de este sector.
 La descripción completa de éste proyecto de haya en el siguiente __documento__:
   
   -> https://drive.google.com/open?id=16Wf6ZzEc6ZgmDGvV04q3CZEjmxudiX2b4hwFKIeReTA
