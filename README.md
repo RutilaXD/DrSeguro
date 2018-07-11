@@ -1,4 +1,8 @@
 # DrSeguro
+
+Para visualizarlo ingresa al siguiente enlace:
+  + https://rutilaxd.github.io/rutilaxd.drseguro.io/
+
 Este es un analizador de salud financiera para compañias de seguros en México, 
 haciendo uso de cuatro de todas las razones financieras exclusivas de este sector.
 La descripción completa de éste proyecto de haya en el siguiente __documento__:
